@@ -1,0 +1,892 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ik Lash & Beauty Station</title>
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#fffdf9">
+
+<meta name="apple-mobile-web-app-capable"
+content="yes">
+
+<meta name="apple-mobile-web-app-title"
+content="Ik Lash">
+
+<link rel="apple-touch-icon"
+href="icon-192.png">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, "PingFang SC", sans-serif;
+  background: #faf7f1;
+  color: #594b3c;
+}
+
+header {
+  background: #fffdf9;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 15px #0000000c;
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ad8b5b;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #77654e;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+nav a:hover {
+  color: #b08d5b;
+}
+
+.hero {
+  min-height: 460px;
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    #eee2d1,
+    #fffdf9,
+    #e8d7c0
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.eyebrow {
+  letter-spacing: 4px;
+  color: #a98a5c;
+  font-size: 12px;
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: 44px;
+  color: #94754c;
+  margin: 20px 0;
+}
+
+.hero p {
+  line-height: 2;
+  font-size: 14px;
+}
+
+.gold-btn {
+  display: inline-block;
+  background: #ad8b5b;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 25px;
+  transition: 0.3s;
+}
+
+.gold-btn:hover {
+  background: #947247;
+  transform: translateY(-2px);
+}
+
+section {
+  padding: 70px 6%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-family: Georgia, serif;
+  color: #94754c;
+  font-size: 32px;
+}
+
+.section-title p {
+  font-size: 13px;
+  margin-top: 12px;
+  color: #948675;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(210px, 1fr)
+  );
+  gap: 24px;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px #70552b12;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background: #f3eee6;
+}
+
+.card-info {
+  padding: 18px;
+  text-align: center;
+  min-height: 85px;
+}
+
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 9px;
+  color: #806744;
+}
+
+.price {
+  color: #ad8b5b;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* Blind Box */
+
+.blind-section {
+  background: #f0e7d9;
+}
+
+.blind-box {
+  max-width: 700px;
+  margin: auto;
+  background: #fffdf9;
+  border-radius: 22px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 8px 30px #80643c18;
+}
+
+.blind-box h2 {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  color: #a1845b;
+}
+
+.blind-price {
+  font-size: 38px;
+  color: #ad8b5b;
+  font-weight: bold;
+  margin: 18px;
+}
+
+.blind-description {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #8b7b68;
+}
+
+.daily-styles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 30px 0;
+}
+
+.daily-style {
+  background: #f7f1e8;
+  border-radius: 13px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.daily-style img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 9px;
+  display: block;
+  background: #eee6da;
+}
+
+.daily-style p {
+  font-size: 13px;
+  margin-top: 10px;
+  color: #806744;
+  font-weight: bold;
+}
+
+.draw-btn {
+  width: 100%;
+  padding: 17px;
+  background: #ad8b5b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.draw-btn:hover {
+  background: #947247;
+}
+
+.result {
+  display: none;
+  margin-top: 28px;
+  padding: 25px 15px;
+  background: #f8f0e5;
+  border-radius: 16px;
+}
+
+.result img {
+  width: 100%;
+  max-width: 320px;
+  height: 260px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  display: block;
+  margin: 18px auto;
+  background: #eee6da;
+}
+
+.result h3 {
+  margin: 15px 0;
+  color: #96764d;
+  font-size: 24px;
+}
+
+.fortune {
+  line-height: 2;
+  margin: 15px 0;
+  color: #816d53;
+  font-size: 15px;
+}
+
+.result .blind-price {
+  font-size: 30px;
+}
+
+/* Contact */
+
+.contact {
+  text-align: center;
+  background: #fffdf9;
+}
+
+.contact p {
+  line-height: 2;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  background: #e9dfd0;
+  color: #76644e;
+  font-size: 12px;
+  line-height: 2;
+}
+
+@media(max-width: 650px) {
+  header {
+    padding: 15px 4%;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 11px;
+  }
+
+  .hero {
+    min-height: 400px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  section {
+    padding: 50px 5%;
+  }
+
+  .section-title h2 {
+    font-size: 27px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  .card img {
+    height: 190px;
+  }
+
+  .card-info {
+    padding: 13px 8px;
+  }
+
+  .card h3 {
+    font-size: 14px;
+  }
+
+  .daily-styles {
+    gap: 8px;
+  }
+
+  .daily-style {
+    padding: 7px;
+  }
+
+  .daily-style img {
+    height: 100px;
+  }
+
+  .daily-style p {
+    font-size: 11px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <div class="logo">IK LASH & BEAUTY</div>
+
+  <nav>
+    <a href="#home">首页</a>
+    <a href="#styles">美睫款式</a>
+    <a href="#blindbox">幸运盲盒</a>
+    <a href="#contact">预约</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+
+<div class="hero" id="home">
+  <div class="eyebrow">IK LASH & BEAUTY STATION</div>
+
+  <h1>Beauty Begins With Your Eyes</h1>
+
+  <p>
+    让每一次眨眼，都成为你的魅力。<br>
+    Find your perfect lashes, find your beauty.
+  </p>
+
+  <a class="gold-btn" href="#styles">
+    Explore Our Collection
+  </a>
+</div>
+
+<!-- LASH COLLECTION -->
+
+<section id="styles">
+
+  <div class="section-title">
+    <h2>Our Lash Collection</h2>
+    <p>找到最适合你的专属眼型</p>
+  </div>
+
+  <div class="grid" id="lashGrid"></div>
+
+</section>
+
+<!-- LUCKY BLIND BOX -->
+
+<section class="blind-section" id="blindbox">
+
+  <div class="section-title">
+    <h2>Lucky Lash Blind Box</h2>
+    <p>每天限定三款，看看今天的幸运款式是什么！</p>
+  </div>
+
+  <div class="blind-box">
+
+    <h2>Today's Lucky 3</h2>
+
+    <p style="margin-top:10px">
+      今日限定美睫盲盒
+    </p>
+
+    <div class="blind-price">RM108</div>
+
+    <p class="blind-description">
+      每天从13款美睫中随机选出3款。<br>
+      每位顾客可以独立抽取其中一款。
+    </p>
+
+    <div class="daily-styles" id="dailyStyles"></div>
+
+    <button class="draw-btn" onclick="drawLash()">
+      ✨ 抽取我的幸运美睫
+    </button>
+
+    <div class="result" id="result">
+
+      <p>🎉 恭喜你抽中了！</p>
+
+      <img id="resultImage" src="" alt="抽中的美睫款式">
+
+      <h3 id="resultName"></h3>
+
+      <div class="blind-price">RM108</div>
+
+      <div class="fortune" id="fortuneText"></div>
+
+      <a class="gold-btn" id="bookingButton" target="_blank">
+        WhatsApp 预约这款美睫
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+  <div class="section-title">
+    <h2>Book Your Appointment</h2>
+    <p>准备好拥有漂亮的眼睛了吗？</p>
+  </div>
+
+  <p>
+    欢迎通过 WhatsApp 联系我们预约时间。
+  </p>
+
+  <a
+    class="gold-btn"
+    href="https://wa.me/601169699661"
+    target="_blank"
+  >
+    WhatsApp Now
+  </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  © 2026 Ik Lash & Beauty Station<br>
+  Beauty in Every Blink.
+</footer>
+
+<script>
+
+/* =================================
+   1. 店铺设置
+================================= */
+
+const WHATSAPP_NUMBER = "601169699661";
+
+
+/* =================================
+   2. 13款美睫资料
+   图片使用数字命名
+================================= */
+
+const lashStyles = [
+
+  {name:"YY 女神款", price:88, image:"1.jpg"},
+
+  {name:"毛绒款", price:138, image:"2.jpg"},
+
+  {name:"单根浓密款", price:88, image:"3.jpg"},
+
+  {name:"单根自然款", price:68, image:"4.jpg"},
+
+  {name:"泰式款", price:138, image:"5.jpg"},
+
+  {name:"中式狐系", price:138, image:"6.jpg"},
+
+  {name:"妈生婴儿弯", price:138, image:"7.jpg"},
+
+  {name:"自然流苏款", price:138, image:"8.jpg"},
+
+  {name:"甜心三叶草", price:138, image:"9.jpg"},
+
+  {name:"INS 穿插款", price:138, image:"10.jpg"},
+
+  {name:"泰式风", price:138, image:"11.jpg"},
+
+  {name:"仙子款", price:138, image:"12.jpg"},
+
+  {name:"漫画款", price:138, image:"13.jpg"}
+
+];
+
+
+/* =================================
+   3. 幸运语
+================================= */
+
+const fortunes = [
+
+  "⭐️⭐️⭐️⭐️⭐️ 今日幸运5颗星！好运正在靠近你！",
+
+  "💰 此款明天发大财！准备迎接好消息！",
+
+  "💕 爱情即将到达，准备迎接甜甜的惊喜！",
+
+  "✨ 今日魅力值爆表，走到哪里都是焦点！",
+
+  "🍀 幸运正在向你靠近，今天会有好事情发生！",
+
+  "👑 今天你就是女主角，自信就是你的秘密武器！",
+
+  "🌷 桃花运悄悄上线，记得多笑一笑！",
+
+  "💖 美丽加倍，好运加倍，开心一整天！",
+
+  "🧧 财运正在加载中，期待你的好消息！",
+
+  "🌟 今天适合开启新计划，惊喜可能就在下一秒！",
+
+  "🎀 今天会遇到一个让你开心的小惊喜！",
+
+  "🥰 你的好心情就是今天最好的幸运符！"
+
+];
+
+
+/* =================================
+   4. 展示全部13款美睫
+================================= */
+
+const lashGrid = document.getElementById("lashGrid");
+
+lashStyles.forEach(style => {
+
+  const card = document.createElement("div");
+
+  card.className = "card";
+
+  const img = document.createElement("img");
+  img.src = style.image;
+  img.alt = style.name;
+  img.loading = "lazy";
+
+  const info = document.createElement("div");
+  info.className = "card-info";
+
+  const name = document.createElement("h3");
+  name.textContent = style.name;
+
+  const price = document.createElement("div");
+  price.className = "price";
+  price.textContent = "RM" + style.price;
+
+  info.appendChild(name);
+  info.appendChild(price);
+
+  card.appendChild(img);
+  card.appendChild(info);
+
+  lashGrid.appendChild(card);
+
+});
+
+
+/* =================================
+   5. 马来西亚日期
+================================= */
+
+function getMalaysiaDate() {
+
+  return new Intl.DateTimeFormat("en-CA", {
+
+    timeZone: "Asia/Kuala_Lumpur",
+
+    year: "numeric",
+
+    month: "2-digit",
+
+    day: "2-digit"
+
+  }).format(new Date());
+
+}
+
+
+/* =================================
+   6. 随机种子
+================================= */
+
+function hashString(str) {
+
+  let hash = 2166136261;
+
+  for (let i = 0; i < str.length; i++) {
+
+    hash ^= str.charCodeAt(i);
+
+    hash = Math.imul(hash, 16777619);
+
+  }
+
+  return hash >>> 0;
+
+}
+
+
+function seededRandom(seed) {
+
+  return function() {
+
+    seed += 0x6D2B79F5;
+
+    let t = seed;
+
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+
+  };
+
+}
+
+
+/* =================================
+   7. 每天固定选出3款
+================================= */
+
+function getDailyStyles() {
+
+  const date = getMalaysiaDate();
+
+  const random = seededRandom(
+    hashString("IK-LASH-" + date)
+  );
+
+  const pool = [...lashStyles];
+
+  for (let i = pool.length - 1; i > 0; i--) {
+
+    const j = Math.floor(random() * (i + 1));
+
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+
+  }
+
+  return pool.slice(0, 3);
+
+}
+
+
+let todayStyles = getDailyStyles();
+
+
+/* =================================
+   8. 显示今日限定3款
+================================= */
+
+function showDailyStyles() {
+
+  const container = document.getElementById("dailyStyles");
+
+  container.innerHTML = "";
+
+  todayStyles.forEach(style => {
+
+    const item = document.createElement("div");
+
+    item.className = "daily-style";
+
+    const img = document.createElement("img");
+
+    img.src = "images/" + style.image;
+
+    img.alt = style.name;
+
+    const name = document.createElement("p");
+
+    name.textContent = style.name;
+
+    item.appendChild(img);
+
+    item.appendChild(name);
+
+    container.appendChild(item);
+
+  });
+
+}
+
+
+showDailyStyles();
+
+
+/* =================================
+   9. 抽取今日幸运美睫
+================================= */
+
+function drawLash() {
+
+  // 检查是否已经进入马来西亚新的一天
+
+  const currentStyles = getDailyStyles();
+
+  if (
+    currentStyles.map(x => x.name).join("|") !==
+    todayStyles.map(x => x.name).join("|")
+  ) {
+
+    todayStyles = currentStyles;
+
+    showDailyStyles();
+
+    document.getElementById("result").style.display = "none";
+
+  }
+
+
+  // 从今日3款中独立随机抽取1款
+
+  const selected = todayStyles[
+    Math.floor(Math.random() * todayStyles.length)
+  ];
+
+
+  // 随机幸运语
+
+  const fortune = fortunes[
+    Math.floor(Math.random() * fortunes.length)
+  ];
+
+
+  // 显示中奖照片
+
+  document.getElementById("resultImage").src =
+    selected.image;
+
+
+  // 显示中奖款式名称
+
+  document.getElementById("resultName").textContent =
+    selected.name;
+
+
+  // 显示幸运语
+
+  document.getElementById("fortuneText").textContent =
+    fortune;
+
+
+  // WhatsApp预约内容
+
+  const message = encodeURIComponent(
+
+    "你好！我在 Ik Lash & Beauty Station 抽中了盲盒：" +
+
+    selected.name +
+
+    "，价格 RM108。我想预约，请问还有时间吗？"
+
+  );
+
+
+  document.getElementById("bookingButton").href =
+
+    "https://wa.me/" +
+
+    WHATSAPP_NUMBER +
+
+    "?text=" +
+
+    message;
+
+
+  // 显示结果
+
+  document.getElementById("result").style.display = "block";
+
+
+  // 自动滚动到结果
+
+  document.getElementById("result").scrollIntoView({
+
+    behavior: "smooth",
+
+    block: "center"
+
+  });
+
+}
+
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .catch(error => console.error(error));
+  });
+}
+</script>
+
+</body>
+</html>
